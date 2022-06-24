@@ -54,9 +54,11 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    final channel = WebSocketChannel.connect(
-      Uri.parse('ws://localhost:8080'),
+    channel = WebSocketChannel.connect(
+      Uri.parse('ws://localhost:8080/ws'),
     );
+
+    channel.stream.listen(print);
   }
 
   @override
@@ -107,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              'Hello, Boring Show!',
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
